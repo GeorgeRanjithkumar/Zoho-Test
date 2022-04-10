@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="demo"></p>
+    <script>
+      function steps(source, step, dest) {
+        if (Math.abs(source) > dest) return Number.MAX_SAFE_INTEGER;
+        if (source == dest) return step;
+        let pos = steps(source + step + 1, step + 1, dest);
+        let neg = steps(source - step - 1, step + 1, dest);
+        return Math.min(pos, neg);
+      }
+      let dest = 17;
+      document.write("Minimum number of steps" + " is: " + steps(0, 0, dest));
+      let A = 4;
+      let T = 2;
+      let G = A + T;
+      document.getElementById("demo").innerHTML = G;
+    </script>
+  </body>
+</html>
